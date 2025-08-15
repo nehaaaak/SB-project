@@ -1,0 +1,55 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+
+cors:
+  allowed-origins: "*"
+  allowed-methods: "*"
+  allowed-headers: "*"
+  exposed-headers: "*"
+
+#aws:
+#  region: eu-west-1
+#  s3:
+#    mock: true
+#    buckets:
+#      customer: fs-amigoscode-customer-test
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info"
+
+aws:
+  region: us-east-1
+  s3:
+    bucketName: spring-upload-demo
+    endpoint-url: http://localstack:4566
+  credentials:
+    access-key: test
+    secret-key: test
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://db:5432/customer
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  main:
+    web-application-type: servlet
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  codec:
+    max-in-memory-size: 10MB
