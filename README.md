@@ -1,4 +1,4 @@
-# # Customer Management & File Upload System
+## Customer Management & File Upload System
 
 A backend system built with **Spring Boot**, **PostgreSQL**, and **LocalStack (AWS S3 emulation)** to manage customers and support file uploads to S3 buckets. The entire project is **containerized with Docker Compose** for seamless setup and deployment.
 Built as a learning project to practice Spring Boot, React, Docker, PostgreSQL, and AWS cloud concepts.
